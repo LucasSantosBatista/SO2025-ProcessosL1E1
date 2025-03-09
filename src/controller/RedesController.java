@@ -45,7 +45,7 @@ public class RedesController {
 				}
 			} else { // No Linux: exibe número do adaptador e inet(ipv4)
 				while ((line = reader.readLine()) != null) {
-					if (line.contains("1:") || line.contains("2:") || line.contains("inet"))
+					if (line.contains("1:") || line.contains("2:") || line.contains("inet "))
 						System.out.println(line);
 				}
 			}
