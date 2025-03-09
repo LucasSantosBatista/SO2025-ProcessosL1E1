@@ -18,10 +18,11 @@ public class RedesController {
 		// Inicia buffer para a escrita do processo
 		String process = "";
 		StringBuffer buffer = new StringBuffer();
-		buffer.append("cmd /c ");
+		
 
 		// Valida sistema operacional
 		if (getOS().contains("Windows")) {
+			buffer.append("cmd /c ");
 			process = "ipconfig";
 			buffer.append(process);
 
