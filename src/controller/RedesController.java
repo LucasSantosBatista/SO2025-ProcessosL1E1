@@ -79,7 +79,7 @@ public class RedesController {
 					String line = "";
 					
 					while ((line = reader.readLine()) != null) {
-						if (line.contains("google") || line.contains("dia"))
+						if (line.contains("google") || line.contains("dia") || line.contains("avg"))
 							System.out.println(line);
 					}
 				} catch (IOException e) {
