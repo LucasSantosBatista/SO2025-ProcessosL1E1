@@ -55,6 +55,35 @@ public class RedesController {
 	}
 
 	public void ping() {
+		// Inicia buffer para a escrita do processo
+				String process = "";
+				StringBuffer buffer = new StringBuffer();
+				
 
+				// Valida sistema operacional
+				if (getOS().contains("Windows")) {
+					buffer.append("cmd /c ");
+					process = "ping -4 -n 10 www.google.com.br";
+					buffer.append(process);
+
+				} else {
+					process = "ping -4 -c 10 www.google.com.br";
+					buffer.append(process);
+				}
+
+				// Utiliza buffer.toString().split() para converter em String e vetor
+				try {
+					Process p = Runtime.getRuntime().exec(buffer.toString().split(" "));
+					BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+					String line = "";
+					
+					while ((line = reader.readLine()) != null) {
+						if (line.contains("google") || line.contains("dia"))
+							System.out.println(line);
+					}
+				} catch (IOException e) {
+					System.err.println(e.getMessage());
+				}
 	}
 }
